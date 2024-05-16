@@ -8,7 +8,6 @@ This project is a Streamlit app deployed on Streamlit Cloud that allows users to
 - [Dependencies](#dependencies)
 - [Installation](#installation)
 - [Deployment](#deployment)
-- [Acknowledgements](#acknowledgements)
 
 ## Usage
 
@@ -40,15 +39,19 @@ pip install streamlit wikipedia-api openai python-dotenv
 git clone <repository-url>
 cd wikipedia-section-summarizer
 
+Create virtual environment to install libraries (in macOS)
+
+Create venv : python3 -m venv venv
+Activate your venv : source venv/bin/activate
 
 pip install -r requirements.txt
 
 
 streamlit run app.py
-
+```
 
 ## Deployment
 
-The app is deployed on Streamlit Cloud. You can access the app [here](<https://indexpy-mukmokjngnrrq3p2el377f.streamlit.app>).
+```bash
 
 Replace `<https://indexpy-mukmokjngnrrq3p2el377f.streamlit.app>` with the URL to your deployed Streamlit app. Additionally, replace `<repository-url>` with the URL of your GitHub repository if you're planning to publish it.
