@@ -53,6 +53,4 @@ streamlit run app.py
 
 ## Deployment
 
-```bash
-
 The app is deployed on Streamlit Cloud. You can access it [here](<https://indexpy-mukmokjngnrrq3p2el377f.streamlit.app>).
