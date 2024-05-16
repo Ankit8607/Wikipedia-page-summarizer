@@ -14,7 +14,7 @@ This project is a Streamlit app deployed on Streamlit Cloud that allows users to
 
 To use the app, follow these steps:
 
-1. Visit the Streamlit app [here](<URL_TO_STREAMLIT_APP>).
+1. Visit the Streamlit app [here](<https://indexpy-mukmokjngnrrq3p2el377f.streamlit.app>).
 2. Enter the title of the Wikipedia page you're interested in.
 3. Select a section from the dropdown menu.
 4. Click on the "Fetch Section" button.
@@ -47,4 +47,4 @@ streamlit run app.py
 
 
 
-Replace `<URL_TO_STREAMLIT_APP>` with the URL to your deployed Streamlit app. Additionally, replace `<repository-url>` with the URL of your GitHub repository if you're planning to publish it.
+Replace `<https://indexpy-mukmokjngnrrq3p2el377f.streamlit.app>` with the URL to your deployed Streamlit app. Additionally, replace `<repository-url>` with the URL of your GitHub repository if you're planning to publish it.
