@@ -39,16 +39,20 @@ pip install streamlit wikipedia-api openai python-dotenv
 git clone <repository-url>
 cd wikipedia-section-summarizer
 
+
 Create virtual environment to install libraries (in macOS)
 
 Create venv : python3 -m venv venv
 Activate your venv : source venv/bin/activate
 
+
 pip install -r requirements.txt
+
 
 Set your OPENAI_API_KEY in local environment variable
 
-streamlit run app.py
+
+streamlit run index.py
 ```
 
 ## Deployment
