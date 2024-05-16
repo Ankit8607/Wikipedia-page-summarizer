@@ -31,8 +31,8 @@ def paraphraser(s):
 
 def main():
     st.title("Wikipedia Section Selector")
-    # page_title = st.text_input("Enter the title of the Wikipedia page:")
-    page_title = "albert_einstein"
+    page_title = st.text_input("Enter the title of the Wikipedia page:")
+    # page_title = "albert_einstein"
     
     if page_title:
         wiki_wiki = wikipediaapi.Wikipedia('ankitsuthar8607@gmail.com','en')
