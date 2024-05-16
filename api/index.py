@@ -33,6 +33,7 @@ def paraphraser(s):
 
 def main():
     st.title("Wikipedia Section Selector")
+
     # User will enter the page name
     page_title = st.text_input("Enter the title of the Wikipedia page:")
     # page_title = "albert_einstein"
@@ -57,19 +58,26 @@ def main():
                     selected_section = sections[int(section_number) - 1]
                     wiki_wiki = wikipediaapi.Wikipedia('ankitsuthar8607@gmai.com','en')
                     page = wiki_wiki.page(page_title)
-                    selected_section_text = page.sections[int(section_number) - 1].text[:4096]  # Limit for GPT-3.5 Turbo
+                    selected_section = page.sections[section_number - 1]
+                    selected_section_text=""
+                    if selected_section.sections:
+                        for sub_section in selected_section.sections:
+                                selected_section_text+=(f"- {sub_section.text}")
+                                if len(selected_section_text)>300: 
+                                    break
+                    else: selected_section_text=selected_section.text[:300]
                     st.write(f"\n--- {selected_section} ---\n")
-                    st.write(selected_section_text)
+                    st.write(selected_section_text[:100])
 
                     # Summarize the content of selected section
                     st.write(f"\n--- Summarization of \"{selected_section}\" ---\n")
                     summary = summarizer(selected_section_text)
-                    st.write(summary)
+                    st.write(summary[:200])
 
                     # Paraphrase the summary
                     st.write(f"\n--- Paraphrasing of summary ---\n")
                     paraphrase = paraphraser(selected_section_text)
-                    st.write(paraphrase)
+                    st.write(paraphrase[:200])
                     
                 except:
                     st.error("Data is missing in this section.")
