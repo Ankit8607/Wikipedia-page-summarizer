@@ -46,6 +46,7 @@ Activate your venv : source venv/bin/activate
 
 pip install -r requirements.txt
 
+Set your OPENAI_API_KEY in local environment variable
 
 streamlit run app.py
 ```
@@ -54,4 +55,4 @@ streamlit run app.py
 
 ```bash
 
-Replace `<https://indexpy-mukmokjngnrrq3p2el377f.streamlit.app>` with the URL to your deployed Streamlit app. Additionally, replace `<repository-url>` with the URL of your GitHub repository if you're planning to publish it.
+The app is deployed on Streamlit Cloud. You can access it [here](<https://indexpy-mukmokjngnrrq3p2el377f.streamlit.app>).
