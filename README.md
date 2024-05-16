@@ -1,6 +1,6 @@
 # Case Study (Wiki Summarisation & Paraphrasing)
 
-This project is a Streamlit app deployed on Streamlit Cloud that allows users to select a Wikipedia page, choose a section from that page, and then summarizes and paraphrases the content of that section using OpenAI's GPT-3.5 model.
+This project is a Streamlit app deployed on Streamlit Cloud that allows users to select a Wikipedia page, choose a section from that page, and then summarizes and paraphrases the content of that section using OpenAI's GPT-3.5-turbo model.
 
 ## Table of Contents
 
