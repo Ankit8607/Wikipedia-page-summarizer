@@ -36,8 +36,8 @@ These dependencies can be installed via pip. For example:
 pip install streamlit wikipedia-api openai python-dotenv
 
 
-git clone <repository-url>
-cd wikipedia-section-summarizer
+git clone <(https://github.com/Ankit8607/stream.git)>
+cd api
 
 
 Create virtual environment to install libraries (in macOS)
