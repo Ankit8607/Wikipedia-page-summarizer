@@ -4,32 +4,14 @@ from openai import OpenAI
 from dotenv import load_dotenv, find_dotenv  # to load environment variables
 import os
 
+from sectionExtractor import section_text  # function to extract the section text
+from summarization import summarizer  # fucntion to summarize the section
+from paraphrasing import paraphraser  # fucntion to paraphrase the summary
+
 _ = load_dotenv(find_dotenv()) # read local .env file
 
 OpenAI.api_key  = os.environ['OPENAI_API_KEY']  # set openai_api key
 client=OpenAI()
-
-# fucntion to summarize the section
-def summarizer(s):
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant. You will summarize the given text"},
-            {"role": "user", "content": s}
-        ]
-    )
-    return response.choices[0].message.content
-
-# function for paraphrasing
-def paraphraser(s):
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "You are a helpful assistant. You will paraphrase the given text"},
-            {"role": "user", "content": s}
-        ]
-    )
-    return response.choices[0].message.content
 
 def main():
     st.title("Wikipedia Section Selector")
@@ -39,7 +21,7 @@ def main():
     # page_title = "albert_einstein"
     
     if page_title:
-        wiki_wiki = wikipediaapi.Wikipedia('ankitsuthar8607@gmail.com','en')
+        wiki_wiki = wikipediaapi.Wikipedia('application','en')
         page = wiki_wiki.page(page_title)  # stored the information of page_title
 
         if page.exists():
@@ -56,23 +38,21 @@ def main():
                 try:
                     # extract the content of selected section
                     selected_section = page.sections[int(section_number) - 1]
-                    wiki_wiki = wikipediaapi.Wikipedia('ankitsuthar8607@gmai.com','en')
+                    wiki_wiki = wikipediaapi.Wikipedia('application','en')
                     page = wiki_wiki.page(page_title)
-                    # selected_section_text=page.sections[int(section_number)-1].text[:300]
-                    selected_section_text=""
-                    if selected_section.sections:
-                        for sub_section in selected_section.sections:
-                                selected_section_text+=(f"- {sub_section.text}")
-                                if len(selected_section_text)>2000: 
-                                    break
-                    else: selected_section_text=selected_section.text[:2000]
+
+
+                    # Extract the text of selected section
+                    selected_section_text = section_text(selected_section)
                     st.write(f"\n--- {selected_section.title} ---\n")
                     st.write(selected_section_text[:500])
 
+
                     # Summarize the content of selected section
-                    st.write(f"\n--- Summarization of \"{selected_section.title}\" ---\n")
+                    st.write(f"\n--- Summarization of section \"{ selected_section.title}\" ---\n")
                     summary = summarizer(selected_section_text)
                     st.write(summary[:500])
+
 
                     # Paraphrase the summary
                     st.write(f"\n--- Paraphrasing of summary ---\n")
